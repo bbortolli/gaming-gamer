@@ -2,7 +2,7 @@
 
 class Event {
   public:
-    void execute(GameMap *gm);
+    void execute();
 };
 
 class EventHandler {

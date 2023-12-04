@@ -2,9 +2,9 @@
 #include <chrono>
 #include <thread>
 #include <vector>
-#include "include/const.h"
-#include "include/GameMap.h"
-#include "include/Event.h"
+#include "const.h"
+#include "GameMap.h"
+#include "Event.h"
 
 #define MAP_SIZE_X 20;
 #define MAP_SIZE_Y 20;
@@ -44,7 +44,7 @@ GameMap::GameMap() {
 
 void GameMap::initializeMap() {
   for (u_int16_t row = 0; row < this->maxHorizontalSize; row++) {
-    std::vector<u_char> rowVector = {};
+    std::vector<unsigned char> rowVector = {};
     for (u_int16_t col = 0; col < this->maxVerticalSize; col++) {
       rowVector.push_back('o');
     };
@@ -52,17 +52,17 @@ void GameMap::initializeMap() {
   };
 };
 
-void GameMap::update(std::vector<Event> events) {
-  for (auto itEvent: events) {
-    itEvent.execute(this);
-  };
+void GameMap::update() {
+  // for (auto itEvent: events) {
+  //   itEvent.execute(this);
+  // };
 };
 
-void GameMap::positionEntity(std::vector<Player> entities, u_char c) {
+void GameMap::positionEntity(std::vector<Player> entities, unsigned char c) {
   for(auto itEntitity : entities) {
     Position position = itEntitity.get_position();
-    uint16_t x = position.x;
-    uint16_t y = position.y;
+    u_int16_t x = position.x;
+    u_int16_t y = position.y;
     this->squares[x][y] = c;
   };
 };

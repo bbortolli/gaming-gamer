@@ -1,9 +1,9 @@
 #include <string>
 #include <map>
 #include <random>
-#include "include/const.h"
-#include "include/Input.h"
-#include "include/Player.h"
+#include "const.h"
+#include "Input.h"
+#include "Player.h"
 
 // helpers
 int random(u_int16_t start, u_int16_t end) {
@@ -14,7 +14,7 @@ int random(u_int16_t start, u_int16_t end) {
   return distrib(gen);
 };
 
-std::map<u_char, Position> keyToDeltaPosition = {
+std::map<unsigned char, Position> keyToDeltaPosition = {
   {'w', {0, -1}},
   {'a', {-1, 0}},
   {'s', {0, 1}},
@@ -26,7 +26,7 @@ std::map<u_char, Position> keyToDeltaPosition = {
 };
 
 // PlayerMoveCommand
-void PlayerMoveCommand::execute(Player player, u_char k) {
+void PlayerMoveCommand::execute(Player player, unsigned char k) {
   player.move(k);
 };
 
@@ -51,7 +51,7 @@ std::string Player::get_name() {
   return this->name;
 };
 
-void Player::move(u_char k) {
+void Player::move(unsigned char k) {
   std::string move_chars = "wasdqezc";
   if (move_chars.find(k)) {
     Position delta = keyToDeltaPosition[k];

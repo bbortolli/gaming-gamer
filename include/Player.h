@@ -12,9 +12,6 @@ class Command {
     virtual void execute() = 0;
 };
 
-class PlayerMoveCommand : public Command {
-  void execute(Player p, u_char k);
-};
 
 class Player {
   public:
@@ -23,7 +20,7 @@ class Player {
     u_int16_t get_health_points();
     std::string get_name();
 
-    void move(u_char k);
+    void move(unsigned char k);
 
   private:
     std::string name;
@@ -32,4 +29,8 @@ class Player {
 
     void set_position(u_int16_t x, u_int16_t y);
     void change_health_points(int16_t delta);
+};
+
+class PlayerMoveCommand : public Command {
+  void execute(Player p, unsigned char k);
 };

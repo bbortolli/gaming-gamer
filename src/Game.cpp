@@ -1,15 +1,21 @@
 #include <string>
 #include <iostream>
 #include <stdio.h>
-#include <include/Input.h>
-#include "include/const.h"
-#include "include/Game.h"
+#include "Input.h"
+#include "const.h"
+#include "Game.h"
 
 #define TICK_RATE 124
 
+bool MyFirstGame::created = false;
+
 MyFirstGame::MyFirstGame(std::string n) {
-  created = true;
+  MyFirstGame::created = true;
   this->worldName = n;
+};
+
+MyFirstGame::~MyFirstGame() {
+  MyFirstGame::created = false;
 };
 
 void MyFirstGame::init() {
@@ -26,7 +32,7 @@ void MyFirstGame::init() {
 void MyFirstGame::game_loop() {
   while (this->isRunning) {
     std::vector<Event> events = this->event_handler.poll_events();
-    this->map.update(events);
+    this->map.update();
     this->map.draw(TICK_RATE);
   };
 };

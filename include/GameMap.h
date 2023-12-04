@@ -39,8 +39,8 @@ class GameMap {
   public:
     GameMap();
     void initializeMap();
-    void update(std::vector<Event> events);
-    void positionEntity(std::vector<Player> entities, u_char c);
+    void update();
+    void positionEntity(std::vector<Player> entities, unsigned char c);
     void positionEntities();
     void drawFloor();
     void draw(u_int16_t ratePerSeconds);
@@ -51,7 +51,7 @@ class GameMap {
   private:
     u_int16_t maxHorizontalSize;
     u_int16_t maxVerticalSize;
-    std::vector< std::vector<u_char> > squares;
+    std::vector< std::vector<unsigned char> > squares;
     std::vector<Player> players;
     std::vector<Player> mobs;
     std::vector<Player> npcs;

@@ -1,4 +1,4 @@
-#include "include/Event.h"
+#include "Event.h"
 
 void EventHandler::register_event(Event e) {
   this->events.push_back(e);
@@ -6,6 +6,6 @@ void EventHandler::register_event(Event e) {
 
 std::vector<Event> EventHandler::poll_events() {
   std::vector<Event> local_events = this->events;
-  events.empty();
+  events.clear();
   return local_events;
 }

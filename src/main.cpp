@@ -1,7 +1,7 @@
-#include "include/Game.h"
+#include "Game.h"
 
 int main(int argc, char* argv[]) {
   MyFirstGame game = MyFirstGame("default");
-  unsigned short int r = game.run();
+  u_int16_t r = game.run();
   return r;
 };
